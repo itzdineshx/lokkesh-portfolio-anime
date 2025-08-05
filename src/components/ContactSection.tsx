@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase, type Message } from '@/lib/supabase';
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ export const ContactSection = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -20,17 +22,43 @@ export const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Simulate form submission
-    toast({
-      title: "Message Sent! 🎌",
-      description: "Your message has been received. I'll get back to you soon!",
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      // Save message to Supabase
+      const { error } = await supabase
+        .from('messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message Sent! 🎌",
+        description: "Your message has been received in real-time. I'll get back to you soon!",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Message Failed ❌",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,11 +132,12 @@ export const ContactSection = () => {
               {/* Hand-seal Submit Button */}
               <Button
                 type="submit"
-                className="w-full anime-button text-lg py-4 group relative overflow-hidden"
+                disabled={isSubmitting}
+                className="w-full anime-button text-lg py-4 group relative overflow-hidden disabled:opacity-50"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <span className="japanese-text">送信</span>
-                  Cast Message Jutsu
+                  {isSubmitting ? 'Casting...' : 'Cast Message Jutsu'}
                   <Send className="w-5 h-5" />
                 </span>
               </Button>
