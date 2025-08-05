@@ -1,4 +1,4 @@
-import { Instagram, Mail, MessageCircle } from 'lucide-react';
+import { Instagram, Mail, MessageCircle, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const SocialSection = () => {
@@ -26,6 +26,22 @@ export const SocialSection = () => {
       hoverColor: 'hover:from-blue-600 hover:to-blue-800',
       href: 'mailto:your.email@example.com', // Placeholder - user can add their actual email
       username: 'lokkesh@example.com'
+    },
+    {
+      name: 'GitHub',
+      icon: <Github className="w-6 h-6" />,
+      color: 'bg-gradient-to-br from-gray-700 to-gray-900',
+      hoverColor: 'hover:from-gray-800 hover:to-black',
+      href: 'https://github.com', // Placeholder - user can add their actual GitHub link
+      username: '@lokkesh'
+    },
+    {
+      name: 'LinkedIn',
+      icon: <Linkedin className="w-6 h-6" />,
+      color: 'bg-gradient-to-br from-blue-600 to-blue-800',
+      hoverColor: 'hover:from-blue-700 hover:to-blue-900',
+      href: 'https://linkedin.com', // Placeholder - user can add their actual LinkedIn link
+      username: '/in/lokkesh'
     }
   ];
 
@@ -55,7 +71,7 @@ export const SocialSection = () => {
         </div>
 
         {/* Social Platforms Grid */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 mb-12">
           {socialPlatforms.map((platform, index) => (
             <div
               key={platform.name}

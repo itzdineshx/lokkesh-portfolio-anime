@@ -156,32 +156,6 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="manga-panel">
-              <h3 className="text-xl font-bold mb-4 text-primary font-anime text-center">
-                Connect on Other Platforms
-              </h3>
-              
-              <div className="flex gap-4 justify-center">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-12 w-12 rounded-full border-primary hover:bg-primary hover:text-primary-foreground group"
-                  onClick={() => window.open('https://github.com', '_blank')}
-                >
-                  <Github className="w-6 h-6" />
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-12 w-12 rounded-full border-secondary hover:bg-secondary hover:text-secondary-foreground group"
-                  onClick={() => window.open('https://linkedin.com', '_blank')}
-                >
-                  <Linkedin className="w-6 h-6" />
-                </Button>
-              </div>
-            </div>
 
             {/* Availability Status */}
             <div className="manga-panel text-center">
