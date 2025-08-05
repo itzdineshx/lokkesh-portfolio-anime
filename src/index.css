@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Anime-inspired design system for Lokkesh's portfolio */
+
+@layer base {
+  :root {
+    /* Core anime color palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    /* Anime-inspired colors */
+    --primary: 355 81% 62%; /* Anime red #E63946 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 66% 70%; /* Anime blue #87CEEB */
+    --secondary-foreground: 0 0% 5%;
+
+    --accent: 45 93% 68%; /* Anime gold #E9C46A */
+    --accent-foreground: 0 0% 5%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 355 81% 62%;
+
+    --radius: 1rem;
+
+    /* Anime-specific colors */
+    --anime-red: 355 81% 62%; /* #E63946 */
+    --anime-blue: 204 57% 57%; /* #457B9D */
+    --anime-gold: 45 93% 68%; /* #E9C46A */
+    --anime-dark: 0 0% 5%;
+    --anime-light: 0 0% 98%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--anime-red)) 0%, hsl(var(--anime-blue)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--anime-gold)) 0%, hsl(var(--anime-red)) 100%);
+    --gradient-power: linear-gradient(90deg, hsl(var(--anime-blue)) 0%, hsl(var(--anime-gold)) 50%, hsl(var(--anime-red)) 100%);
+    
+    /* Shadows */
+    --shadow-anime: 0 10px 30px -10px hsl(var(--anime-red) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--anime-gold) / 0.4);
+    --shadow-power: 0 5px 20px hsl(var(--anime-blue) / 0.3);
+    
+    /* Animations */
+    --transition-anime: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-power: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 355 81% 62%; /* Keep anime red */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 57% 57%; /* Keep anime blue */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 45 93% 68%; /* Keep anime gold */
+    --accent-foreground: 0 0% 5%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 355 81% 62%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
+}
+
+@layer components {
+  /* Anime-specific components */
+  .anime-text {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+  }
+  
+  .japanese-text {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .power-gradient {
+    background: var(--gradient-power);
+  }
+  
+  .anime-shadow {
+    box-shadow: var(--shadow-anime);
+  }
+  
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .power-shadow {
+    box-shadow: var(--shadow-power);
+  }
+  
+  .manga-panel {
+    @apply bg-card border-2 border-border rounded-lg p-6 relative;
+    box-shadow: 5px 5px 0px hsl(var(--border));
+  }
+  
+  .power-bar {
+    @apply h-4 rounded-full overflow-hidden bg-muted relative;
+  }
+  
+  .power-fill {
+    @apply h-full transition-all duration-1000 ease-out relative;
+    background: var(--gradient-power);
+  }
+  
+  .anime-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-lg;
+  }
+  
+  .anime-card:hover {
+    box-shadow: var(--shadow-anime);
+  }
+  
+  .cherry-blossom-bg {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--secondary) / 0.1) 0%, transparent 50%);
+  }
+  
+  .speech-bubble {
+    @apply relative bg-card border-2 border-primary rounded-lg p-4;
+  }
+  
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid hsl(var(--primary));
+  }
+  
+  .anime-button {
+    @apply px-6 py-3 rounded-full font-bold text-primary-foreground;
+    @apply transition-all duration-300 transform;
+    background: var(--gradient-accent);
+    border: 2px solid hsl(var(--primary));
+  }
+  
+  .anime-button:hover {
+    @apply scale-110;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .mission-card {
+    @apply bg-card border-2 border-border rounded-lg p-4 transition-all duration-300;
+    @apply hover:border-primary hover:scale-105;
+  }
+  
+  .timeline-dot {
+    @apply w-4 h-4 rounded-full bg-primary border-4 border-background;
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.3);
+  }
+  
+  /* Enhanced Anime Animation Classes */
+  .power-card {
+    @apply anime-card;
+    transition: var(--transition-power);
+  }
+  
+  .power-card:hover {
+    @apply animate-power-charge;
+    transform: translateY(-5px) scale(1.02);
+  }
+  
+  .hero-effect {
+    @apply animate-fade-in-scale;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+  
+  .combat-ready {
+    @apply animate-ki-blast;
+    animation-delay: 0.5s;
+  }
+  
+  .sakura-particle {
+    @apply absolute animate-sakura-fall;
+    pointer-events: none;
+  }
+  
+  .aura-effect {
+    @apply absolute inset-0 rounded-full animate-aura-pulse;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+  }
+  
+  .energy-wave {
+    @apply absolute inset-0 rounded-full animate-shockwave;
+    background: radial-gradient(circle, hsl(var(--accent) / 0.5) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .typing-effect {
+    @apply animate-typing overflow-hidden whitespace-nowrap;
+    border-right: 2px solid hsl(var(--primary));
+  }
+  
+  .battle-stance {
+    @apply transition-all duration-500 hover:animate-super-glow;
+    cursor: pointer;
+  }
+  
+  .mission-reveal {
+    @apply animate-slide-up-bounce;
+  }
+  
+  .jutsu-seal {
+    @apply animate-slash-effect;
+    position: relative;
+  }
+  
+  .jutsu-seal::before {
+    content: '';
+    @apply absolute inset-0 bg-primary animate-energy-burst;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .card-battle:hover {
+    @apply animate-card-flip;
+    transform-style: preserve-3d;
+  }
+  
+  /* Staggered Animation Delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-1000 { animation-delay: 1s; }
+}
