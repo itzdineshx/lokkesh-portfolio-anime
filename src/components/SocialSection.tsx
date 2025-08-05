@@ -8,15 +8,15 @@ export const SocialSection = () => {
       icon: <Instagram className="w-6 h-6" />,
       color: 'bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400',
       hoverColor: 'hover:from-purple-600 hover:via-pink-600 hover:to-orange-500',
-      href: '#', // Placeholder - user can add their actual Instagram link
-      username: '@lokkesh.exe'
+      href: 'https://www.instagram.com/_master_of_ethics_/',
+      username: '@_master_of_ethics_'
     },
     {
       name: 'WhatsApp',
       icon: <MessageCircle className="w-6 h-6" />,
       color: 'bg-gradient-to-br from-green-400 to-green-600',
       hoverColor: 'hover:from-green-500 hover:to-green-700',
-      href: '#', // Placeholder - user can add their actual WhatsApp link
+      href: 'https://wa.me/9444472225',
       username: '+91 XXXXX XXXXX'
     },
     {
@@ -24,15 +24,15 @@ export const SocialSection = () => {
       icon: <Mail className="w-6 h-6" />,
       color: 'bg-gradient-to-br from-blue-500 to-blue-700',
       hoverColor: 'hover:from-blue-600 hover:to-blue-800',
-      href: 'mailto:your.email@example.com', // Placeholder - user can add their actual email
-      username: 'lokkesh@example.com'
+      href: 'mailto:lokkeshup10i@gmail.com',
+      username: 'lokkeshup10i@gmail.com'
     },
     {
       name: 'GitHub',
       icon: <Github className="w-6 h-6" />,
       color: 'bg-gradient-to-br from-gray-700 to-gray-900',
       hoverColor: 'hover:from-gray-800 hover:to-black',
-      href: 'https://github.com', // Placeholder - user can add their actual GitHub link
+      href: 'https://www.youtube.com/watch?v=OxgKzHUupBM',
       username: '@lokkesh'
     },
     {
@@ -40,7 +40,7 @@ export const SocialSection = () => {
       icon: <Linkedin className="w-6 h-6" />,
       color: 'bg-gradient-to-br from-blue-600 to-blue-800',
       hoverColor: 'hover:from-blue-700 hover:to-blue-900',
-      href: 'https://linkedin.com', // Placeholder - user can add their actual LinkedIn link
+      href: 'https://www.youtube.com/watch?v=OxgKzHUupBM',
       username: '/in/lokkesh'
     }
   ];
