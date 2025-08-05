@@ -5,7 +5,7 @@ export const DownloadResumeSection = () => {
   const handleDownload = () => {
     // Placeholder function - user can implement actual download logic
     console.log('Resume download initiated - please implement download functionality');
-    // Example: window.open('/path-to-resume.pdf', '_blank');
+    window.open('lokkesh_resume.pdf', '_blank');
   };
 
   const resumeStats = [

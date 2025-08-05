@@ -20,7 +20,7 @@ export const Navigation = () => {
 
   useEffect(() => {
     // Initialize audio with placeholder file (user can replace this)
-    audioRef.current = new Audio('/naruto-theme-placeholder.mp3');
+    audioRef.current = new Audio('naruto_theme.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.2;
     
